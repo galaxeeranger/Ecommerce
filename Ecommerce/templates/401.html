@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}401 ERROR{% endblock title %}
+{% block main-content %}
+   <div class="container">
+      <div class="row h-100">
+         <div class="col-12 col-md-10 mx-auto my-auto">
+            <div class="card auth-card">
+               <div class="position-relative image-side"></div>
+               <div class="form-side">
+                  <div class="text-center">
+                     <a href="/login/">
+                     <span class="logo-single"></span>
+                     {% if messages %}
+                        {% for message in messages %}
+                           <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+                        {% endfor %}
+                     {% endif %}
+                  </a>
+                  <h6 class="mb-4 font-weight-bold">Ooops... Access is Denied Due to Invalid Credentials</h6>
+                  <p class="mb-0 text-muted text-small mb-0">Error code</p>
+                  <p class="display-1 font-weight-bold mb-5">401</p>
+                  <a href="/login/" class="btn btn-primary btn-lg btn-shadow">GO TO LOGIN</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock main-content %}
