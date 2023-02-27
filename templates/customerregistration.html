@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<div class="container">
+   <div class="row my-3">
+      <div class="col-sm-6 offset-sm-3">
+         <h3>Customer Registration</h3>
+         <hr>
+         <form method="POST" novalidate class="shadow p-5">
+         {% if messages %}
+            {% for message in messages %}
+               <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+            {% endfor %}
+         {% endif %}
+
+         {% csrf_token %}
+            {% for fm in form %}
+             <div class="form-group mb-3">
+               {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+             </div>
+            {% endfor %}
+            <div style='text-align: center;'>
+               <input type="submit" value='Submit' class="btn btn-primary">
+               <input type="reset" value='Reset' class="btn btn-danger">
+            </div><br>
+            <div class="text-center text-primary fw-bold">
+               <small>Existing User ? 
+                  <a href="{% url 'login' %}" class="text-danger">Login Now</a>
+               </small>
+            </div>
+            {% if form.non_field_errors %}
+               {% for error in form.non_field_errors %}
+                  <p class="alert alert-danger my-3">{{error}}</p>
+               {% endfor %}
+            {% endif %}
+            <!-- <div class="mb-3">
+               <label for="username" class="form-label">UserName*</label>
+               <input type="text" class="form-control" id="name-form" name="un">
+            </div>
+            <div class="mb-3">
+               <label for="firstname" class="form-label">First Name</label>
+               <input type="text" class="form-control" id="name-form" name="fn">
+            </div>
+            <div class="mb-3">
+               <label for="lastname" class="form-label">Last Name</label>
+               <input type="text" class="form-control" id="name-form" name="ln">
+            </div>
+            <div class="mb-3">
+               <label for="inputEmail4" class="form-label">Email</label>
+               <input type="email" class="form-control" id="inputEmail4" name="em">
+            </div>
+            <div class="mb-3">
+               <label for="inputPassword1" class="form-label">Password</label>
+               <input type="password" class="form-control" id="inputPassword1">
+            </div>
+            <div class="mb-3">
+               <label for="inputPassword2" class="form-label">Confirm Password</label>
+               <input type="password" class="form-control" id="inputPassword2" name="ps">
+            </div>
+            <div style="text-align: center;">
+               <button type="submit" class="btn btn-danger">Submit</button>
+               <button type="reset" class="btn btn-danger">Reset</button>
+            </div>
+            <br>
+            <div class="text-center text-primary fw-bold"><small>Existing User ? <a href="{% url 'login' %}"
+                     class="text-danger">Login Now</a> </small></div>
+            {% if form.non_field_errors %}
+               {% for error in form.non_field_errors %}
+                  <p class="alert alert-danger my-3">{{error}}</p>
+               {% endfor %}
+            {% endif %} -->
+         </form>
+      </div>
+   </div>
+</div>
+{% endblock main-content %}
