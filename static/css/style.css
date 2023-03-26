@@ -1,0 +1,54 @@
+.owl-carousel .item {
+  /* border: 1px solid black; */
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.owl-next {
+  float: right;
+}
+.owl-prev {
+  float: left;
+}
+.owl-prev span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.owl-next span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.lg_rgtr{
+position: relative;
+left: 27rem;
+}
+.d-flex{
+  position: relative;
+  left: 22rem;
+}
+.search{
+  position: relative;
+  right: 4px;
+}
+.navbar-brand{
+  position: relative;
+  right: 100px;
+}
+.total_rs {
+  position: relative;
+  right: 33rem;
+}
+.cart_list{
+  width: 585px;
+  position: relative;
+  right: 20rem;
+}
+.place_order{
+  position: relative;
+  left: 262px;
+}
+.sell {
+  text-decoration: line-through;
+ }
+
